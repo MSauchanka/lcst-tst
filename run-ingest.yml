@@ -1,0 +1,20 @@
+ execution:
+    - executor: locust
+      concurrency:
+        local: 1
+        cloud: 2
+      locations:
+        us-west-1:1
+      ramp-up: 10s
+      hold-for: 30s
+      scenario:
+        script: jobs-perf.py
+        default-address:
+  
+ modules:
+   cloud:
+    token: 
+    timeout: 5
+    browser-open: start
+    test: locust-tst
+    project: Locust-Test
